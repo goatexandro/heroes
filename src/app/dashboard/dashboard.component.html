@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+  <h2>Marvel Heroes</h2>
+
+  <div class="search-container">
+    <input 
+      #searchBox 
+      type="text" 
+      placeholder="Buscar héroe..." 
+      (input)="search(searchBox.value)" 
+      class="search-input" 
+    />
+
+    <div *ngIf="heroes$ | async as heroes">
+      <ul>
+        <li *ngFor="let hero of heroes">
+          <img 
+            *ngIf="hero.thumbnail" 
+            [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" 
+            width="50" 
+            height="50" 
+          />
+          <span>{{ hero.name }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="heroes-menu">
+    <div *ngFor="let hero of getPagedHeroes()" class="hero-card">
+      <a routerLink="/hero/{{hero.id}}">
+        <img class="hero-image" 
+             [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" 
+             >
+      </a>
+      <div class="hero-info">
+        <h3>{{ hero.name }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

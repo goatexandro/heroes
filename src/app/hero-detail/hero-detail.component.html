@@ -1,0 +1,18 @@
+<div *ngIf="hero" class="hero-detail-container">
+  <h2 class="hero-name">{{ hero?.name }} Details</h2>
+
+  <div class="hero-image-container">
+    <img [src]="hero?.thumbnail?.path + '.' + hero?.thumbnail?.extension" class="hero-image">
+  </div>
+
+  <div class="hero-info">
+    <p><strong>Id:</strong> {{ hero?.id }}</p>
+    <p><strong>Description:</strong> {{ hero?.description || 'No description available' }}</p>
+    <p><strong>Comics:</strong> {{ hero?.comics?.available }} comics available</p>
+    <p><strong>Series:</strong> {{ hero?.series?.available }} series available</p>
+  </div>
+
+  <div class="hero-actions">
+    <button (click)="goBack()">Go Back</button>
+  </div>
+</div>

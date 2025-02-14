@@ -1,0 +1,30 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    placeholder="Buscar..." 
+    (input)="search($event.target.value)" 
+    class="search-input" 
+  />
+</div>
+
+<div *ngIf="heroes$ | async as heroes; else loading">
+  <div *ngIf="heroes.length > 0; else noResults">
+    <ul>
+      <li *ngFor="let hero of heroes">
+        <a [routerLink]="['/hero', hero.id]">
+          <img 
+            *ngIf="hero.thumbnail" 
+            [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension" 
+            alt="{{ hero.name }}" 
+            width="50" 
+            height="50" 
+          />
+          <span>{{ hero.name }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noResults>
+    <p>No hay heroes que se llamen asi</p>
+  </ng-template>
+</div>
