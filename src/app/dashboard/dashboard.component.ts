@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
   heroesPerPage = 10;
   currentPage = 1;
-  totalPages = 1;
+  totalPages = 2;
 
   private heroService = inject(HeroService);
   private route = inject(ActivatedRoute);

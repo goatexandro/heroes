@@ -48,6 +48,4 @@ export class HeroService {
       `${this.apiUrl}/${id}?ts=${ts}&apikey=${this.publicKey}&hash=${hash}`
     )
   }
-
-  
 }
