@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getPagedHeroes(): Hero[] {
-    const start = (this.currentPage - 1) * this.heroesPerPage;
+    const start = (this.currentPage);
     return this.heroes.slice(start, start + this.heroesPerPage);
   }
 

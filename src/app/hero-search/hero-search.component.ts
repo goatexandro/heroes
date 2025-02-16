@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./search-hero.component.scss']
 })
 export class SearchHeroComponent {
-  heroes: Observable<Hero[]> = new Observable<Hero[]>(); // Inicialización de heroes$
+  heroes: Observable<Hero[]> = new Observable<Hero[]>(); 
 
   constructor(private heroService: HeroService) {}
 
